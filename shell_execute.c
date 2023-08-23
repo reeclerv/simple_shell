@@ -28,7 +28,7 @@ void execute_command(const char *command) {
 
         /* Execute the command using execve */
         if (execve(args[0], args, NULL) == -1) {
-            perror("execve");
+            perror("./shell");
             _exit(1);
         }
     } else {  /* Parent process */
