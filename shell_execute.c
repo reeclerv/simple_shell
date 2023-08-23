@@ -1,46 +1,45 @@
 #include "shell.h"
 
 /**
-* exec_cmd - Execute the user command.
-* @command: User input command to execute.
-*
+* exec_cmd - Execute the user cmd.
+* @cmd: User input cmd to execute.
+* @argv0: Name of the program.
 */
-void exec_cmd(const char *command)
+void exec_cmd(const char *cmd, const char *argv0)
 {
-char command_copy[MAX_COMMAND_LENGTH];
-pid_t pid;
-int status;
+char cmd_cpy[MAX_COMMAND_LENGTH];
+pid_t prcid;
+int stat;
 
-strcpy(command_copy, command);
+strcpy(cmd_cpy, cmd);
 
 /* Fork a new process */
-pid = fork();
+prcid = fork();
 
-if (pid < 0)
+if (prcid < 0)
 {
-perror("Fork failed");
+perror(argv0);
 return;
 }
 
-if (pid == 0)
+if (prcid == 0)
 {  /* Child process */
-/* Tokenize the command copy */
+/* Tokenize the cmd copy */
 char *args[3];
-char *token = strtok(command_copy, " ");
+char *token = strtok(cmd_cpy, " ");
 args[0] = token;
 args[1] = NULL;
 
-/* Execute the command using execve */
+/* Execute the cmd using execve */
 if (execve(args[0], args, NULL) == -1)
 {
-perror("./shell");
+perror(argv0);
 _exit(1);
 }
 }
 else
 {  /* Parent process */
-waitpid(pid, &status, 0);
-}
+waitpid(prcid, &stat, 0);
 }
 /* Author: reeclerv */
-
+}

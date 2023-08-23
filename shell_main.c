@@ -2,8 +2,8 @@
 
 /**
  * main - Entry point of the shell program.
- * @argc: Number of command-line arguments.
- * @argv: Array of command-line arguments.
+ * @argc: Number of cmd-line arguments.
+ * @argv: Array of cmd-line arguments.
  * Return: Exit status.
  */
 
@@ -13,12 +13,12 @@ int is_interactive = isatty(0);
 
 while (1)
 {
-char command[MAX_COMMAND_LENGTH];
+char cmd[MAX_COMMAND_LENGTH];
 ssize_t num_read;
 
 promptDisp(is_interactive);
 
-num_read = inputRead(command);
+num_read = inputRead(cmd);
 if (num_read == 0)
 {
 if (is_interactive)
@@ -28,7 +28,7 @@ write(1, "\n", 1);
 break;
 }
 
-exec_cmd(command);
+exec_cmd(cmd, argv[0]);
 }
 return (0);
 }

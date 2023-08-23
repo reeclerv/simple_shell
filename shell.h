@@ -16,8 +16,8 @@
 
 /* Function prototypes */
 void promptDisp(int is_interactive);
-ssize_t inputRead(char *command);
-void exec_cmd(const char *command);
+ssize_t inputRead(char *cmd);
+void exec_cmd(const char *cmd, const char *argv0);
 
-#endif /* SHELL_H */
 /* Author: reeclerv */
+#endif /* SHELL_H */

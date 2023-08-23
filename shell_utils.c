@@ -2,16 +2,16 @@
 
 /**
  * inputRead - Read input from the user.
- * @command: Buffer to store the user input.
+ * @cmd: Buffer to store the user input.
  * Return: Number of bytes read.
  */
-ssize_t inputRead(char *command)
+ssize_t inputRead(char *cmd)
 {
-ssize_t readNumber = read(0, command, sizeof(command));
+ssize_t readNumber = read(0, cmd, sizeof(cmd));
 
-if (readNumber > 0 && command[readNumber - 1] == '\n')
+if (readNumber > 0 && cmd[readNumber - 1] == '\n')
 {
-command[readNumber - 1] = '\0';
+cmd[readNumber - 1] = '\0';
 }
 return (readNumber);
 }
