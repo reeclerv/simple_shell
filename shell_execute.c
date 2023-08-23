@@ -4,7 +4,7 @@
  * execute_command - Execute the user command.
  * @command: User input command to execute.
  */
-void execute_command(const char *command) {
+void exec_cmd(const char *command) {
     char command_copy[MAX_COMMAND_LENGTH];
     pid_t pid;
     int status;

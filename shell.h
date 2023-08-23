@@ -15,9 +15,9 @@
 #define MAX_COMMAND_LENGTH 100
 
 /* Function prototypes */
-void display_prompt(int is_interactive);
-ssize_t read_input(char *command);
-void execute_command(const char *command);
+void promptDisp(int is_interactive);
+ssize_t inputRead(char *command);
+void exec_cmd(const char *command);
 
 #endif /* SHELL_H */
 /* Author: reeclerv */
