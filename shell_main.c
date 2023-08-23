@@ -6,27 +6,31 @@
  * @argv: Array of command-line arguments.
  * Return: Exit status.
  */
-int main(int argc, char *argv[]) {
-    int is_interactive = isatty(0);
 
-    while (1) {
-        char command[MAX_COMMAND_LENGTH];
-        ssize_t num_read;
+int main(int argc, char *argv[])
+{
+int is_interactive = isatty(0);
 
-        promptDisp(is_interactive);
+while (1)
+{
+char command[MAX_COMMAND_LENGTH];
+ssize_t num_read;
 
-        num_read = inputRead(command);
-        if (num_read == 0) {
-            if (is_interactive) {
-                write(1, "\n", 1);
-            }
-            break;
-        }
+promptDisp(is_interactive);
 
-        exec_cmd(command);
-    }
+num_read = inputRead(command);
+if (num_read == 0)
+{
+if (is_interactive)
+{
+write(1, "\n", 1);
+}
+break;
+}
 
-    return 0;
+exec_cmd(command);
+}
+return (0);
 }
 /* Author: reeclerv */
 
