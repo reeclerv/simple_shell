@@ -24,7 +24,7 @@ void promptDisp(int is_interactive)
 {
 if (is_interactive)
 {
-char *prompt = "#cisfun$ ";
+char *prompt = "($) ";
 write(1, prompt, strlen(prompt));
 }
 }
