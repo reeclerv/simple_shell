@@ -15,6 +15,7 @@ while (1)
 {
 char cmd[MAX_COMMAND_LENGTH];
 ssize_t num_read;
+num_read = argc;
 
 promptDisp(is_interactive);
 
